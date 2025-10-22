@@ -1,0 +1,184 @@
+13 Coding Rules:
+1.Low Coupling (Minimal Dependencies)
+2.High Cohesion
+3.SOLID Principle
+4.Open-Closed Principle
+5.Program to Interface
+6.Encapsulate What Varies
+7.Favor Delegation Over Inheritance
+8.Composition (or “Configuration”)
+9.Aggregation
+10.Association
+11.Object Typecasting
+12.Parameterized Constructor
+13.Granularity
+
+15 OOP Concepts:
+1.Class
+2.Object (add a new property to one object without modifying existing code)
+3.Constructor
+4.functions/methods (inside and outside class)
+5.Encapsulation
+6.Abstraction
+7.Inheritance
+8.Polymorphism
+9.Prototype-Based Inheritance
+10.Getters and Setters
+11.Access Specifiers
+12.this Keyword
+13.Static Methods
+14.Exception Handling: throw, try, catch
+15.Debugging: using console.log() statements
+
+Custom Questions:
+
+1) Car Manufacturing Program
+Question:Develop a Car Manufacturing program in JavaScript. 
+Your code should demonstrate all 13 OOP concepts (Class, Object, Constructor, Methods, 
+Encapsulation, Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, 
+Getters/Setters, Access Specifiers, this Keyword, and Static Methods) 
+as well as the 13 Coding Rules (Low Coupling, High Cohesion, SOLID, Open-Closed, 
+Program to Interface, Encapsulate What Varies, Favor Delegation Over Inheritance, 
+Composition, Aggregation, Association, Object Typecasting, Parameterized Constructor, 
+Granularity).
+
+Guidelines:
+-Create classes to model different aspects of a car manufacturing process (e.g., Car, Engine or specialized classes like ElectricCar).
+-Use a constructor to initialize essential properties (brand, model, year, etc.).
+-Implement methods inside the class (e.g., startCar()), and at least one function outside the class (showing how they can interact).
+-Apply Encapsulation with at least one private field (using # in ES2022+).
+-Demonstrate Inheritance (e.g., ElectricCar extends Car) and Polymorphism (overriding a method).
+-Prototype-Based Inheritance: add a function to the prototype (Car.prototype).
+-Use a static method in at least one class to show factory creation or utility logic.
+-Add a property to one object after creation without modifying the existing class code.
+
+Ensure you highlight how each of the 13 Coding Rules is satisfied 
+(especially Low Coupling by delegating tasks to different classes, High Cohesion by 
+focusing each class on a single responsibility, etc.).
+
+
+2) Banking (Opening a Savings Account) Program
+Question:Build a Banking application that focuses on opening a Savings Account in JavaScript. 
+Again, showcase all 13 OOP concepts (Class, Object, Constructor, Methods, Encapsulation, 
+Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, Getters/Setters, 
+Access Specifiers, this Keyword, Static Methods) plus the 13 Coding Rules (Low Coupling, 
+High Cohesion, SOLID, Open-Closed, Program to Interface, Encapsulate What Varies, 
+Favor Delegation Over Inheritance, Composition, Aggregation, Association, Object Typecasting, 
+Parameterized Constructor, Granularity).
+
+Guidelines:
+-Create an abstract or “interface-like” class to model different Account behaviors (e.g., deposit, withdraw).
+-Implement a SavingsAccount subclass that inherits from this interface/base class.
+-Use a constructor to initialize account data (account number, initial deposit).
+-Apply Encapsulation (using private fields for sensitive data, like balance).
+-Implement a method to deposit and withdraw money. Demonstrate Abstraction by letting each account type handle its own logic.
+-Use a separate Bank class to show Composition or Aggregation (the Bank “has” multiple accounts).
+-Show Association with a Customer class that can link to one or more accounts.
+-Add a property to one account object after creation (without changing the class definition).
+-Use at least one static method to open a new savings account or produce a summary.
+
+Explain how each of the 13 Coding Rules is addressed (especially Program to Interface by 
+referencing the account interface, Open-Closed by allowing new account types without changing 
+existing code, etc.).
+
+Submission Recommendations
+-Comment your code to indicate where each OOP concept and each coding rule is applied.
+-Show how you maintain low coupling, high cohesion, and encapsulate what varies.
+-Use inheritance and prototype additions where relevant.
+-Demonstrate getters, setters, private fields (#), static methods, and the this keyword.
+
+
+3) Pizza Factory Program – 
+Develop a Pizza Factory program in JavaScript that demonstrates the 13 Coding Rules (Low Coupling, High Cohesion, SOLID Principle, Open-Closed Principle, Program to Interface, Encapsulate What Varies, Favor Delegation Over Inheritance, Composition, Aggregation, Association, Object Typecasting, Parameterized Constructor, Granularity) and the 13 OOP Concepts (Class, Object + new property, Constructor, methods, Encapsulation, Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, Getters and Setters, Access Specifiers, this Keyword, Static Methods)
+Additionally, the code must include exception handling (throw, try, catch), debugging with console.log() statements, and a JavaScript callback to simulate asynchronous behavior.
+Guidelies:
+Classes: Create a base class (e.g., PizzaBase) representing an “interface-like” or abstract class that includes a method prepareDough().
+
+Subclasses (e.g., ThinCrust, ThickCrust) must implement prepareDough(), demonstrating Abstraction and Inheritance.
+
+Encapsulation: Use private fields (e.g., #size) in a main Pizza class to hide internal properties.
+Provide Getters and Setters to manage that private data.
+
+Methods: At least one method insde a class (e.g., preparePizza() in Pizza), and at least one outside the class (e.g., a standalone function or a prototype extension) to demonstrate different ways of adding functionality.
+Static Methods: Add at least one static factory method in your Pizza class to create specialized pizzas (e.g., createThinCrustPizza("Margherita")).
+
+Polymorphism: Create a specialized pizza class (e.g., PepperoniPizza extends Pizza) that overrides a method (like preparePizza()) to add extra steps.
+
+Prototype-Based Inheritance: Add a method to a class prototype at runtime (Pizza.prototype.myNewMethod = ...).
+Add a New Property to Exactly One Object:
+After creating an object (e.g., pizza2), do something like pizza2.extraCheese = true; — without modifying your Pizza class code.
+
+Exception Handling: Use throw new Error(...) to handle unexpected scenarios (e.g., if a user tries to finalize an empty pizza order).
+Wrap it in a try ... catch block to demonstrate robust error handling.
+
+Debugging: Insert console.log("DEBUG: ...") statements to clarify code flow and help with debugging.
+
+JavaScript Callback:
+In your pizza-preparation method, use a callback (e.g., a function passed into preparePizza(callback)) that is invoked once the pizza is ready, simulating an asynchronous operation with setTimeout.
+
+Demonstrate 13 Coding Rules:
+Low Coupling, High Cohesion: Classes should have minimal dependency on each other’s internal details and remain focused on one responsibility.
+SOLID Principle, Open-Closed Principle: Show how new crusts or new pizza types can be added without editing existing core logic.
+Program to Interface: PizzaBase as an abstract / interface-like class.
+Encapsulate What Varies: The crust type changes but the pizza logic remains the same.
+Favor Delegation Over Inheritance: Pizza delegates dough prep to a base instance.
+Composition / Aggregation / Association: Manage multiple pizzas within a PizzaOrder class.
+Object Typecasting: Illustrate checking with instanceof.
+Parameterized Constructor: E.g., constructor(name, size, base).
+Granularity: Keep classes small and well-defined.
+
+Run a Demonstration:
+Show sample pizzas (Margherita, PepperoniPizza) in action.
+Prepare them (triggering the callback).
+Possibly create an order object and finalize it to show try ... catch error handling if the order is invalid
+
+
+4) Maze Game – 
+Develop a Maze Game in JavaScript that implements the 13 Coding Rules (Low Coupling, High Cohesion, SOLID Principle, Open-Closed Principle, Program to Interface, Encapsulate What Varies, Favor Delegation Over Inheritance, Composition, Aggregation, Association, Object Typecasting, Parameterized Constructor, Granularity) and the 13 OOP Concepts (Class, Object + new property, Constructor, methods, Encapsulation, Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, Getters and Setters, Access Specifiers, this Keyword, Static Methods).
+Additionally, your code must include exception handling (throw, try, catch), debugging with console.log(), and demonstrate a JavaScript Promise for an asynchronous action.
+
+Guidelines
+Classes and Abstraction
+Create an abstract-like class MazeRoom with a method enter(). Throw an error if enter() is not implemented by subclasses.
+Encapsulate What Varies
+Make subclasses (e.g., EnchantedRoom, BombedRoom) that override enter(), demonstrating Inheritance and Polymorphism.
+Encapsulation & Access Specifiers
+Use a private field (e.g., #difficulty) inside a main MazeGame class. Show Getters and Setters to control it.
+Composition / Aggregation
+Have a Maze class that contains multiple rooms. A MazeGame has a Maze.
+Favor Delegation
+Let Maze call room.enter() rather than implementing room logic itself.
+Parameterized Constructor
+At least one constructor with parameters (e.g., constructor(difficulty) in MazeGame).
+Static Methods
+Provide methods like MazeGame.createEnchantedMaze() or MazeGame.createBombedMaze() to quickly create specialized mazes.
+Prototype-Based Inheritance
+Add a method to MazeGame.prototype at runtime (e.g., MazeGame.prototype.addRandomRoom).
+Object + New Property
+After creating an object (like const enchantedGame = MazeGame.createEnchantedMaze()), add a new property to that one object (e.g., enchantedGame.extraMode = "Dark") without modifying the class.
+Association
+Optionally create a Player class that can join a MazeGame, showing how objects can be linked.
+Exception Handling
+Use throw new Error("...") in MazeRoom.enter() (if not overridden) or in your game logic, then handle it in a try ... catch.
+Debugging
+Insert console.log("DEBUG: ...") statements to trace program flow (e.g., in constructors or methods).
+JavaScript Promise
+Show at least one asynchronous operation with a Promise – for example, fetching a random room type after a setTimeout() or simulating external data.
+Resolve or reject the promise, and handle the outcome with .then(...).catch(...).
+
+Demonstrate 13 Coding Rules
+Low Coupling: Each class should depend minimally on the internal details of others.
+High Cohesion: Each class focuses on a single task (e.g., Maze only manages rooms).
+SOLID Principle: Single Responsibility, and Open for extension (e.g., easily add new room types).
+...and so forth for the rest of the rules.
+
+
+5) IT Company Employees Payroll – Question Prompt
+Develop an IT Company Employees Payroll system in JavaScript that implements the 13 Coding Rules (Low Coupling, High Cohesion, SOLID Principle, Open-Closed Principle, Program to Interface, Encapsulate What Varies, Favor Delegation Over Inheritance, Composition, Aggregation, Association, Object Typecasting, Parameterized Constructor, Granularity) and the 13 OOP Concepts (Class, Object with a new property post-creation, Constructor, methods, Encapsulation, Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, Getters/Setters, Access Specifiers, this Keyword, Static Methods, return keyword).
+In addition, your code must demonstrate exception handling (throw, try, catch), debugging via console.log(), and show asynchronous logic using JavaScript’s async/await.
+
+Guidelines
+Create employee class, constructor, write getter and setters for private members, 
+static method, calculateBonus(), displayInfo(), add new property in an object without 
+chnging any existing code, access properties using object. Create Manager class extends 
+Employee for inheritance,  constructor, 

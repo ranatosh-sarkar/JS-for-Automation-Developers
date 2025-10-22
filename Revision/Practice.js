@@ -4,18 +4,20 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.question("enter the digit to be reversed: ", (num) => {
-  const revStr = num.toString();
-
-  const arr = revStr.split("");
-  console.log(`array: [${arr}]`);
-
-  let revArr = [];
-  for(let i=arr.length-1; i>=0; i--){
-    revArr.push(arr[i]);
+rl.question("enter number : ", (num) => {
+  const chars = num.split("");
+  const arr = [];
+  let temp=0;
+  for(let i=0; i<=chars.length-1; i++){
+    arr.push(parseInt(chars[i]));
   }
-
-  const revDigit = revArr.join("");
-  console.log(`reversed: ${revDigit}]`);
-
-})
+  for(let i=0; i<=arr.length-2; i++){
+  if(arr[i] > arr[i+1]){
+    temp=arr[i];
+    arr[i] = arr[i+1];
+    arr[i+1] = temp;
+  }
+  }
+  console.log(`largest digit: ${arr[arr.length-1]}`);
+  rl.close();
+});
