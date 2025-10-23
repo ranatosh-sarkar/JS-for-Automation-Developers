@@ -17,7 +17,7 @@ class Employee {
   }
 
   setName(newName) {
-      if (newName.length < 3) throw new Error("Name too short");
+      if (newName.length < 2) throw new Error("Name too short");
       this.#name = newName;
   }
 
@@ -39,7 +39,7 @@ class Employee {
 
   // 12. this Keyword
   displayInfo() {
-      console.log(`Employee ${this.#name} (${this.role}) earns ${this.#salary}`);
+      console.log(`Employee ${this.#name} (${this.role}) with id ${this.id} earns ${this.#salary}`);
   }
 
   // 13. Static Methods
@@ -49,8 +49,8 @@ class Employee {
 }
 
 // Debugging via console.log()
-console.log("=== EMPLOYEE DETAILS ===");
-// 3. Object with new property post-creation
+console.log("=== EXISTING EMPLOYEE DETAILS ===");
+// 3. Object with values to existing property post-creation
 //variable emp1 will always point to the same object
 const emp1 = new Employee(101, "Alan", "Developer", 60000);
 // can’t reassign the whole variable
@@ -64,6 +64,7 @@ console.log("Calling displayInfo()-->");
 emp1.displayInfo();
 // console.log(`name= ${emp1.#name}, salary= ${emp1.#salary}`); -- not possible because of private fields
 // emp1.#name = "Alan Collins"; emp1.#salary = 80000;  -- not possible because of private fields
+console.log("=== SETTING NEW EMPLOYEE DETAILS AFTER PROMOTION===");
 emp1.setName("Alan Collins");
 emp1.setSalary(80000);
 console.log("Access Employee new name-> ", emp1.name);
@@ -75,34 +76,33 @@ console.log(`id= ${emp1.id}, role= ${emp1.role}, department= ${emp1.department}`
 
 // 7. Inheritance
 class Manager extends Employee {
-  constructor(id, name, baseSalary, teamSize, department) {
-      super(id, name, "Manager", baseSalary);
-      this.teamSize = teamSize;
-      this.department = department;
+  constructor(id, name, baseSalary, department, teamSize) {
+    super(id, name, "Manager", baseSalary);
+    this.department = department;
+    this.teamSize = teamSize;
   }
 
   // 8. Polymorphism (method overriding)
   calculateBonus() {
-      // console.log("this.salary()--", this.salary);
-      // console.log("this.teamSize--", this.teamSize);
-      return this.salary * 0.2 + this.teamSize * 100;
+    return this.salary * 0.2 + this.teamSize * 100;
   }
 
-  //it's own functionality
+  // its own functionality
   approveLeave() {
-      console.log(`Designated ${this.role} ${this.name} can approve leaves.`);
+    console.log(`Designated ${this.role} ${this.name} can approve leaves.`);
   }
 }
 
-const mgr1 = new Manager(1001, "Bradely", 80000, 30, "Technical Management");
+const mgr1 = new Manager(1001, "Bradely", 80000, "Technical Management", 30);
+
 console.log("----Manager Details----");
 mgr1.displayInfo();
 console.log(mgr1);
 
 mgr1.setName("Bradely Cooper");
-mgr1.department = "Business Management";     
-console.log("Update Department--",mgr1.department);   
-console.log("Manager name--", mgr1.name);
+mgr1.department = "Business Management";
+console.log("Updated Department--", mgr1.department);
+console.log("Manager Name--", mgr1.name);
 console.log("Bonus--", mgr1.calculateBonus());
 mgr1.approveLeave();
 

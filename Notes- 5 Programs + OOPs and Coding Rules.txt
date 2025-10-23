@@ -174,11 +174,20 @@ SOLID Principle: Single Responsibility, and Open for extension (e.g., easily add
 
 
 5) IT Company Employees Payroll – Question Prompt
-Develop an IT Company Employees Payroll system in JavaScript that implements the 13 Coding Rules (Low Coupling, High Cohesion, SOLID Principle, Open-Closed Principle, Program to Interface, Encapsulate What Varies, Favor Delegation Over Inheritance, Composition, Aggregation, Association, Object Typecasting, Parameterized Constructor, Granularity) and the 13 OOP Concepts (Class, Object with a new property post-creation, Constructor, methods, Encapsulation, Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, Getters/Setters, Access Specifiers, this Keyword, Static Methods, return keyword).
-In addition, your code must demonstrate exception handling (throw, try, catch), debugging via console.log(), and show asynchronous logic using JavaScript’s async/await.
+Develop an IT Company Employees Payroll system in JavaScript that implements the 13 Coding Rules 
+(Low Coupling, High Cohesion, SOLID Principle, Open-Closed Principle, Program to Interface, 
+Encapsulate What Varies, Favor Delegation Over Inheritance, Composition, Aggregation, Association,
+Object Typecasting, Parameterized Constructor, Granularity) and the 13 OOP Concepts (Class, 
+Object with a new property post-creation, Constructor, methods, Encapsulation, Abstraction, 
+Inheritance, Polymorphism, Prototype-Based Inheritance, Getters/Setters, Access Specifiers, 
+this Keyword, Static Methods, return keyword).
+In addition, your code must demonstrate exception handling (throw, try, catch), debugging 
+via console.log(), and show asynchronous logic using JavaScript’s async/await.
 
 Guidelines
 Create employee class, constructor, write getter and setters for private members, 
 static method, calculateBonus(), displayInfo(), add new property in an object without 
-chnging any existing code, access properties using object. Create Manager class extends 
-Employee for inheritance,  constructor, 
+changing any existing code, access properties using object, set new values of existing employee 
+object. 
+Create Manager class extends Employee for inheritance,  constructor-call super constructor, 
+polymorphism(method overriding), it's own function, set new for same manager object.
