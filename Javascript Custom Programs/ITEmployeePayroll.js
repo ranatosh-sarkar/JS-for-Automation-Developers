@@ -12,17 +12,12 @@ class Employee {
   }
 
   // 10. Getters and Setters
-  get name() {
-      return this.#name;
-  }
+  get name()   { return this.#name; }
+  get salary() { return this.#salary; }
 
   setName(newName) {
       if (newName.length < 2) throw new Error("Name too short");
       this.#name = newName;
-  }
-
-  get salary() {
-      return this.#salary;
   }
 
   setSalary(amount) {
@@ -65,7 +60,18 @@ emp1.displayInfo();
 // console.log(`name= ${emp1.#name}, salary= ${emp1.#salary}`); -- not possible because of private fields
 // emp1.#name = "Alan Collins"; emp1.#salary = 80000;  -- not possible because of private fields
 console.log("=== SETTING NEW EMPLOYEE DETAILS AFTER PROMOTION===");
-emp1.setName("Alan Collins");
+// Exception Handling (throw, try, catch)
+try {
+      emp1.setName("A");
+    } catch (e) {
+      console.error("Caught Error (name):", e.message);
+    }
+try {
+      emp1.setSalary(-1);
+    } catch (e) {
+      console.error("Caught Error (salary):", e.message);
+    }
+emp1.setName("Alan");
 emp1.setSalary(80000);
 console.log("Access Employee new name-> ", emp1.name);
 console.log("Access Employee new salary-> ", emp1.salary);
@@ -74,6 +80,8 @@ emp1.displayInfo();
 console.log("Accessing Object properties");
 console.log(`id= ${emp1.id}, role= ${emp1.role}, department= ${emp1.department}`);
 
+// 5. Encapsulation is shown through getters/setters and private fields
+// 6. Abstraction is implemented by hiding internal salary fields via private (#salary)
 // 7. Inheritance
 class Manager extends Employee {
   constructor(id, name, baseSalary, department, teamSize) {
@@ -106,36 +114,52 @@ console.log("Manager Name--", mgr1.name);
 console.log("Bonus--", mgr1.calculateBonus());
 mgr1.approveLeave();
 
-// 6. Abstraction is implemented by hiding internal salary fields via private (#salary)
+//you can’t declare a classic “constructor function + its prototype” inside a class body
+//But you can attach a constructor function as a property on Manager after the class is defined, 
+//and give that function its own .prototype
+Manager.prototype.assignProject = function (project) {
+  console.log(`Manager ${mgr1.name} is assigned to project: ${project}`);
+};
+mgr1.assignProject("Apollo");
 
-// 5. Encapsulation is shown through getters/setters and private fields
 
+// 9. Prototype?? --> in JS, every function and object has its own property called prototype
+//problem* usual way of adding new property, this is only applicable to a specific object
+const intern1 = { firstName: "Elon" , lastname: "Musk"};
+intern1.role = "Internship";
+console.log(`Intern 1 Name: ${intern1.firstName} ${intern1.lastname}, role: ${intern1.role}`);
+
+// we can use the prototype to add new properties and methods to a constructor function without changing 
+// existing code. ALL objects inherits the properties and methods from a prototype
 // 9. Prototype-based Inheritance
-//Every object has a hidden link to another object called its prototype
-//The fallback object an instance delegates to
 function Intern(id, name) {
   this.id = id;
   this.name = name;
 }
+
+//stipend is the property name stored on the prototype
 Intern.prototype.stipend = 1000;
-//getInfo is the property name
-//getInfo is a method (function) stored on the prototype
+//getInfo is the property name also a method (function) stored on the prototype
 Intern.prototype.getInfo = function () {
   return `Intern ${this.name}, stipend: ${this.stipend}`;
 };
-const intern1 = new Intern(301, "Bob");
-console.log(intern1.getInfo());
 
-// 14. return keyword
+//new keyword makes the Intern function into a constructor
+//constructor function can be created on its prototype without declaring a class
+const intern2 = new Intern(302, "Bob");
+console.log(intern2.getInfo());
+
+Intern.prototype.stipend = 2000;
+const intern3 = new Intern(303, "Marley");
+console.log(intern3.getInfo());
+
+Intern.prototype.stipend = 2500;
+const intern4 = new Intern(304, "Maverick");
+console.log(intern4.getInfo());
+
+// 14. function declared outside class with return keyword
 function getAnnualCost(employee) {
   return employee.salary * 12;
-}
-
-// Exception Handling (throw, try, catch)
-try {
-  emp1.name = "Al"; // too short
-} catch (err) {
-  console.error("Caught Error:", err.message);
 }
 
 // Async/Await – simulate salary processing
@@ -149,13 +173,13 @@ async function processPayroll(employee) {
   });
 }
 
-async function runPayroll() {
+async function runPayroll(employee) {
   try {
-      const amount = await processPayroll(emp1);
+      const amount = await processPayroll(employee);
       console.log("Net Pay:", amount);
   } catch (error) {
       console.error("Payroll processing failed:", error.message);
   }
 }
 
-runPayroll(); // run async function
+runPayroll(emp1); // run async function

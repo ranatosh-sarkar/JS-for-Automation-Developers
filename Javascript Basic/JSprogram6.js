@@ -22,6 +22,14 @@ rl.question("Enter digits separated by spaces: ", (input) => {
     sum += arr[i];
   }
 
+  // for(let i=0; i<=chars.length-1; i++){
+  //   arr.push(chars[i]);
+  // }
+
+  // for(let i=0; i<=arr.length-1; i++){
+  //   sum += parseInt(arr[i]);
+  // }
+
   // Step 5: Print result
   console.log(`Sum of array elements: ${sum}`);
 

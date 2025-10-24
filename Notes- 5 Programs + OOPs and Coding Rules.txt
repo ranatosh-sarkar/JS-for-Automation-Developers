@@ -184,10 +184,18 @@ this Keyword, Static Methods, return keyword).
 In addition, your code must demonstrate exception handling (throw, try, catch), debugging 
 via console.log(), and show asynchronous logic using JavaScript’s async/await.
 
-Guidelines
-Create employee class, constructor, write getter and setters for private members, 
-static method, calculateBonus(), displayInfo(), add new property in an object without 
-changing any existing code, access properties using object, set new values of existing employee 
-object. 
+Guidelines: ********AIM: Do it without changing any existing code********
+Create employee class, constructor, write getter and setters for private members(id, name, role, salary), 
+static method, calculateBonus(), displayInfo(), and create an object then add new property to the 
+existing object without changing any existing code, access object properties and set new values of 
+existing employee object properties also showcase try-catch for -ive test (name,salary) 
+
 Create Manager class extends Employee for inheritance,  constructor-call super constructor, 
-polymorphism(method overriding), it's own function, set new for same manager object.
+polymorphism(method overriding), it's own function, set new values to the same manager object and then
+call it's own method also demonstrate constructor function as a property
+
+Demonstrate Prototype - usual way of adding new property to a aspeciific object, Prototype-based 
+Inheritance for Intern (add stipend & getInfo()), create an object and declare getAnnualCost()
+outside class
+
+
