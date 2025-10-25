@@ -24,8 +24,8 @@ class Solution {
       if (freq > maxFreq) {
         maxFreq = freq;
         maxChar = ch;
-      } else if (freq === maxFreq) {
-        if (maxChar === "" || ch < maxChar) {
+      } else if (freq === maxFreq) { //=== compares values and types
+        if (ch < maxChar) {
           maxChar = ch; // lexicographically smaller wins
         }
       }
@@ -42,8 +42,7 @@ const readline = require("readline");
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
 rl.question("Enter a string: ", (line) => {
-  // const cleaned = line.replace(/\s+/g, ""); // ignore spaces if desired
-  const chars = line.split(""); // character array
+  const chars = line.replace(/\s+/g, "").split("");//replace(/\s+/g, "")-> removes all spaces,tabs,newlines
   const sol = new Solution();
   const ans = sol.mostFrequentChar(chars);
   console.log("Most frequent character:", ans);
