@@ -1,0 +1,79 @@
+1. Use Switch Case and Print week days
+
+2. 
+*
+**
+***
+****
+*****
+
+3.
+*****
+****
+***
+**
+*
+
+4. 
+    *
+   ***
+  *****
+ *******
+*********
+
+5.     
+    * 
+   ***
+  *****
+ *******
+*********
+*********
+ *******
+  *****
+   ***
+    *
+
+6.
+*
+**
+***
+****
+*****
+****
+***
+**
+* 
+
+7.
+1 
+0 1 
+1 0 1 
+0 1 0 1 
+1 0 1 0 1
+
+8.
+    A
+   ABA
+  ABCBA
+ ABCDCBA
+ABCDEDCBA
+
+9.
+E 
+D E 
+C D E 
+B C D E 
+A B C D E
+
+10.
+1        1
+12      21
+123    321
+1234  4321
+1234554321
+
+**Q. Banking (Opening a Savings Account) Program
+**Q. implement Singleton Pattern - ConfigManager
+**Q. implement Factory Pattern - Driver Factory
+
+-->> All SQL questions
