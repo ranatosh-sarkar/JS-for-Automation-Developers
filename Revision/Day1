@@ -1,4 +1,4 @@
-1. Reverse a number
+1. Reverse a number and reverse string (a word & a sentence)
 2. Return largest digit in a number
 3. check for prime number
 4. sum of array elements
@@ -6,12 +6,10 @@
     -highest occuring integer element in an array
     -highest occuring character element in an array
     -second highest occuring element in an array
-6. reverse string (a word & a sentence)
 7. largest common prefix
 8. sort characters by frequency
-
-**Q. IT Company Employees Payroll
-**Q. implement Singleton Pattern - ConfigManager
-**Q. implement Factory Pattern - Driver Factory
+9. Read Interview Questions - Playwright, Jenkins, Docker, Postman, Selenium
+10. IT Company Employees Payroll
 
 -->> All SQL questions
+-->> implement JavaScript Playwright Native Framework from Interview perspective (POM, Reports, Logging, Singleton, Excel Read, WaiHelpers, Playwright Test’s hooks - listeners, Jenkinsfile, Dockerfile)

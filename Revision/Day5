@@ -2,9 +2,12 @@
 2. implement queue using array
 3. deletion at Kth position
 4. insertion at Kth position
-
-**Q. Maze Game Program
-**Q. 1 easy + 2 hard leetcode programs
-**Q. implement whole UI Playwright framework
-
+5. 1 easy + 1 medium leetcode programs
+6. 1 easy + 1 medium hackerrank programs
+7. Self Introduction
+8. Team Process in each company/projects
+9. Read Interview Questions - Playwright, Jenkins, Docker, Postman, Selenium
+10. Maze Game – factory pattern implementation
 -->> All SQL questions
+-->> implement JavaScript Playwright Native Framework from Interview perspective 
+(POM, Reports, Logging, Singleton, Excel Read, WaiHelpers, Playwright Test’s hooks - listeners, Jenkinsfile, Dockerfile)

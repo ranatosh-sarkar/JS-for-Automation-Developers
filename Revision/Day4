@@ -1,16 +1,68 @@
-1. Sorting
-    - Insertion
-    - Merge
-    - Quick
-2. floor and ceiling in sorted array
-3. KOKO eating bananas
-4. minimum days to make M banquets
-5. Matrix median
-6. Add 2 number in LL
-7. Sort LL of 0's, 1's, and 2's
-8. Reverse LL
+1. Use Switch Case and Print week days
 
-**Q. Pizza Factory Program
-**Q. implement Listeners, Logs, and WaitHelper
+2. 
+*
+**
+***
+****
+*****
+
+3.
+*****
+****
+***
+**
+*
+
+4. 
+    *
+   ***
+  *****
+ *******
+*********
+
+5.     
+    * 
+   ***
+  *****
+ *******
+*********
+*********
+ *******
+  *****
+   ***
+    *
+
+6.
+1 
+0 1 
+1 0 1 
+0 1 0 1 
+1 0 1 0 1
+
+7.
+    A
+   ABA
+  ABCBA
+ ABCDCBA
+ABCDEDCBA
+
+8.
+E 
+D E 
+C D E 
+B C D E 
+A B C D E
+
+9.
+1        1
+12      21
+123    321
+1234  4321
+1234554321
+
+10. Banking (Opening a Savings Account) Program
 
 -->> All SQL questions
+-->> implement JavaScript Playwright Native Framework from Interview perspective 
+(POM, Reports, Logging, Singleton, Excel Read, WaiHelpers, Playwright Test’s hooks - listeners, Jenkinsfile, Dockerfile)

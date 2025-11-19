@@ -10,9 +10,9 @@
 5. Use Arrays and find missing number
 6. longest consecutive sequence in an array
 7. longest sub array with sum k
-8. count sub arrays with given sum    
-
-**Q. Car Manufacturing Program
-**Q. implement Listeners, Logs, and WaitHelper
+8. count sub arrays with given sum   
+9. Read Interview Questions - Playwright, Jenkins, Docker, Postman, Selenium
+10. Maze Game – factory pattern implementation
 
 -->> All SQL questions
+-->> implement JavaScript Playwright Native Framework from Interview perspective (POM, Reports, Logging, Singleton, Excel Read, WaiHelpers, Playwright Test’s hooks - listeners, Jenkinsfile, Dockerfile)

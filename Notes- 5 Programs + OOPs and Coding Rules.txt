@@ -32,32 +32,7 @@
 
 Custom Questions:
 
-1) Car Manufacturing Program
-Question:Develop a Car Manufacturing program in JavaScript. 
-Your code should demonstrate all 13 OOP concepts (Class, Object, Constructor, Methods, 
-Encapsulation, Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, 
-Getters/Setters, Access Specifiers, this Keyword, and Static Methods) 
-as well as the 13 Coding Rules (Low Coupling, High Cohesion, SOLID, Open-Closed, 
-Program to Interface, Encapsulate What Varies, Favor Delegation Over Inheritance, 
-Composition, Aggregation, Association, Object Typecasting, Parameterized Constructor, 
-Granularity).
-
-Guidelines:
--Create classes to model different aspects of a car manufacturing process (e.g., Car, Engine or specialized classes like ElectricCar).
--Use a constructor to initialize essential properties (brand, model, year, etc.).
--Implement methods inside the class (e.g., startCar()), and at least one function outside the class (showing how they can interact).
--Apply Encapsulation with at least one private field (using # in ES2022+).
--Demonstrate Inheritance (e.g., ElectricCar extends Car) and Polymorphism (overriding a method).
--Prototype-Based Inheritance: add a function to the prototype (Car.prototype).
--Use a static method in at least one class to show factory creation or utility logic.
--Add a property to one object after creation without modifying the existing class code.
-
-Ensure you highlight how each of the 13 Coding Rules is satisfied 
-(especially Low Coupling by delegating tasks to different classes, High Cohesion by 
-focusing each class on a single responsibility, etc.).
-
-
-2) Banking (Opening a Savings Account) Program
+1) Banking (Opening a Savings Account) Program
 Question:Build a Banking application that focuses on opening a Savings Account in JavaScript. 
 Again, showcase all 13 OOP concepts (Class, Object, Constructor, Methods, Encapsulation, 
 Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, Getters/Setters, 
@@ -88,7 +63,7 @@ Submission Recommendations
 -Demonstrate getters, setters, private fields (#), static methods, and the this keyword.
 
 
-3) Pizza Factory Program – 
+2) Pizza Factory Program – 
 Develop a Pizza Factory program in JavaScript that demonstrates the 13 Coding Rules (Low Coupling, High Cohesion, SOLID Principle, Open-Closed Principle, Program to Interface, Encapsulate What Varies, Favor Delegation Over Inheritance, Composition, Aggregation, Association, Object Typecasting, Parameterized Constructor, Granularity) and the 13 OOP Concepts (Class, Object + new property, Constructor, methods, Encapsulation, Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, Getters and Setters, Access Specifiers, this Keyword, Static Methods)
 Additionally, the code must include exception handling (throw, try, catch), debugging with console.log() statements, and a JavaScript callback to simulate asynchronous behavior.
 Guidelies:
@@ -133,7 +108,7 @@ Prepare them (triggering the callback).
 Possibly create an order object and finalize it to show try ... catch error handling if the order is invalid
 
 
-4) Maze Game – 
+3) Maze Game – 
 Develop a Maze Game in JavaScript that implements the 13 Coding Rules (Low Coupling, High Cohesion, SOLID Principle, Open-Closed Principle, Program to Interface, Encapsulate What Varies, Favor Delegation Over Inheritance, Composition, Aggregation, Association, Object Typecasting, Parameterized Constructor, Granularity) and the 13 OOP Concepts (Class, Object + new property, Constructor, methods, Encapsulation, Abstraction, Inheritance, Polymorphism, Prototype-Based Inheritance, Getters and Setters, Access Specifiers, this Keyword, Static Methods).
 Additionally, your code must include exception handling (throw, try, catch), debugging with console.log(), and demonstrate a JavaScript Promise for an asynchronous action.
 
@@ -173,7 +148,7 @@ SOLID Principle: Single Responsibility, and Open for extension (e.g., easily add
 ...and so forth for the rest of the rules.
 
 
-5) IT Company Employees Payroll – Question Prompt
+4) IT Company Employees Payroll – Question Prompt
 Develop an IT Company Employees Payroll system in JavaScript that implements the 13 Coding Rules 
 (Low Coupling, High Cohesion, SOLID Principle, Open-Closed Principle, Program to Interface, 
 Encapsulate What Varies, Favor Delegation Over Inheritance, Composition, Aggregation, Association,
