@@ -166,11 +166,15 @@ existing object without changing any existing code, access object properties and
 existing employee object properties also showcase try-catch for -ive test (name,salary) 
 
 Create Manager class extends Employee for inheritance,  constructor-call super constructor, 
-polymorphism(method overriding), it's own function, set new values to the same manager object and then
-call it's own method also demonstrate constructor function as a property
+polymorphism(method overriding), it's own function, set new values to the same manager object and 
+then call it's own method also demonstrate constructor function as a property (add project)
 
-Demonstrate Prototype - usual way of adding new property to a aspeciific object, Prototype-based 
-Inheritance for Intern (add stipend & getInfo()), create an object and declare getAnnualCost()
-outside class
+Demonstrate Prototype-based Inheritance -
+1. declare Intern function
+2. noob way of adding new property to a specific object (intern1 - firstname, lastname, role) using prototype
+3. create a getInfo() constructor function, , create an object and declare getAnnualCost(), processPayroll()
+4. runPayroll()
+
+
 
 

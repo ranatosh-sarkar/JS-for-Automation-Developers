@@ -114,22 +114,25 @@ console.log("Manager Name--", mgr1.name);
 console.log("Bonus--", mgr1.calculateBonus());
 mgr1.approveLeave();
 
-//you can’t declare a classic “constructor function + its prototype” inside a class body
-//But you can attach a constructor function as a property on Manager after the class is defined, 
-//and give that function its own .prototype
+//you can’t declare a classic “constructor function + its prototype” inside a class body (prototype is always outside)
+//But you can attach a 'prototype method' as a property on Manager after the class is defined, 
+//below is an instance method adding to Manager 
 Manager.prototype.assignProject = function (project) {
-  console.log(`Manager ${mgr1.name} is assigned to project: ${project}`);
+  this.project = project; // sets an own (per-instance) property, not a shared one                  
+  console.log(`Manager ${this.name} is assigned to: ${project}`);
 };
-mgr1.assignProject("Apollo");
 
+mgr1.assignProject("Apollo");
+console.log(`Manager's new project: ${mgr1.project}`);
 
 // 9. Prototype?? --> in JS, every function and object has its own property called prototype
 //problem* usual way of adding new property, this is only applicable to a specific object
+
 const intern1 = { firstName: "Elon" , lastname: "Musk"};
 intern1.role = "Internship";
 console.log(`Intern 1 Name: ${intern1.firstName} ${intern1.lastname}, role: ${intern1.role}`);
 
-// we can use the prototype to add new properties and methods to a constructor function without changing 
+// we can use the prototype to add new properties and methods to a 'constructor function' without changing 
 // existing code. ALL objects inherits the properties and methods from a prototype
 // 9. Prototype-based Inheritance
 function Intern(id, name) {
@@ -137,7 +140,7 @@ function Intern(id, name) {
   this.name = name;
 }
 
-//stipend is the property name stored on the prototype
+//.stipend is the shared property stored on the prototype, it's shared by every Intern object
 Intern.prototype.stipend = 1000;
 //getInfo is the property name also a method (function) stored on the prototype
 Intern.prototype.getInfo = function () {
@@ -153,22 +156,21 @@ Intern.prototype.stipend = 2000;
 const intern3 = new Intern(303, "Marley");
 console.log(intern3.getInfo());
 
-Intern.prototype.stipend = 2500;
 const intern4 = new Intern(304, "Maverick");
-console.log(intern4.getInfo());
+console.log(intern4.getInfo()); // reads current stipend value
 
 // 14. function declared outside class with return keyword
 function getAnnualCost(employee) {
   return employee.salary * 12;
 }
 
-// Async/Await – simulate salary processing
+// Async/Await – simulate salary processing (async is a promise of returning something else undefined)
 async function processPayroll(employee) {
   console.log("Processing payroll for", employee.name);
-  return new Promise((resolve) => {
+  return new Promise((resolve) => {//explicitly return new Promise('resolve'-function you call 2 fulfill the promise with a value)
       setTimeout(() => {
-          const netPay = employee.salary + employee.calculateBonus();
-          resolve(netPay);
+          const netYearlyPay = getAnnualCost(employee) + employee.calculateBonus();
+          resolve(netYearlyPay);
       }, 1000);
   });
 }
@@ -176,7 +178,7 @@ async function processPayroll(employee) {
 async function runPayroll(employee) {
   try {
       const amount = await processPayroll(employee);
-      console.log("Net Pay:", amount);
+      console.log("Net Yearly Pay:", amount);
   } catch (error) {
       console.error("Payroll processing failed:", error.message);
   }
