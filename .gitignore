@@ -1,0 +1,8 @@
+# --- Standalone binaries (do not commit) ---
+standalone scripts/driver-bundle-1.56.0.jar
+standalone scripts/driver-1.56.0.jar
+standalone scripts/playwright-1.56.0.jar
+standalone scripts/gson-2.13.2.jar
+standalone scripts/Java-WebSocket-1.6.0.jar
+standalone scripts/selenium-server-standalone-2.53.0.jar
+standalone scripts/chromedriver.exe
