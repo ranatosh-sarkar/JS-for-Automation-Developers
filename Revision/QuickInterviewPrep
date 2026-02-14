@@ -1,0 +1,64 @@
+cover 5 areas:
+
+I. sql - correlated subquery, left join, join, right join, self join, update, order by, group by, count(), having
+Q1. Employees earning more than their department’s average
+Q2. display all employees and their departments from the tables employee and department - E,D-LJ, E,D-RJ, D,E-LJ
+Q3. Update to give Finance employees a 5 % raise in salary
+Q4. Sort employees by salary and name
+Q5. Employees whose boss is in a different department
+Q6. Departments with fewer than three employees
+Q7. Top earners in each department use JOIN and subquery to compute
+Q8. Employees earning more than their boss
+Q9. Departments with total salary exceeding Finance use subquery and where
+Q10. Second highest salary
+
+II. Framework level questions
+Q1. automation single page script using JS + Playwright & XPATH for UI
+Q2. automation single page script using JS + Postman for API
+Q3. Explain your frameworks
+
+//////////below two questions are low priority//////////////
+Q4. automation single page script using Java + Playwright - XPATH
+Q5. automation single page script using Java + Selenium - XPATH
+
+III. programs
+Q1. Reverse a number and reverse string (a word & a sentence)
+Q2. highest occuring integer element in an array
+Q3. Recursion - Factorial, String Palindrome, Fibanacci Series
+Q4. Binary Search
+Q5. Use Arrays and move zeros to end
+Q6. Insertion, Bubble Sort
+Q7. Use Arrays and find missing number
+Q8. longest consecutive sequence in an array
+Q9. implement stack using array
+Q10.
+    * 
+   ***
+  *****
+ *******
+*********
+*********
+ *******
+  *****
+   ***
+    *
+
+Q11.
+1        1
+12      21
+123    321
+1234  4321
+1234554321
+
+Q12.
+    A
+   ABA
+  ABCBA
+ ABCDCBA
+ABCDEDCBA
+
+IV. custom progarms
+Q1.Maze Game – factory pattern implementation
+Q2.IT Company Employees Payroll
+
+V. Read interview questions - Introduction, API, behavioral, leadership, managerial etc.

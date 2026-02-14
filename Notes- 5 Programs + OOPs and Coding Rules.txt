@@ -170,10 +170,12 @@ polymorphism(method overriding), it's own function, set new values to the same m
 then call it's own method also demonstrate constructor function as a property (add project)
 
 Demonstrate Prototype-based Inheritance -
-1. declare Intern function
-2. noob way of adding new property to a specific object (intern1 - firstname, lastname, role) using prototype
-3. create a getInfo() constructor function, , create an object and declare getAnnualCost(), processPayroll()
-4. runPayroll()
+1. noob way of adding new property to a specific object (intern1 - firstname, lastname, role, id) using prototype
+2. declare Intern class and extends Employee, pass (id, name) in super constructor and new property- stipend
+3. create a getInfo() prototype function, create another three objects and update stipend and use displayInfo() & name
+4. declare getAnnualCost() (salary * 12) - function declared outside class with return keyword 
+5. (netYearlyPay = getAnnualCost + calculateBonus)-processPayroll() using 'new' and Promise((resolve) => {}) and setTimeout(() => {})
+5. define and runPayroll() use try-catch - const totalAnnualPayout
 
 
 
