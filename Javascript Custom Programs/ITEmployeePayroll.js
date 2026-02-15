@@ -168,6 +168,7 @@ function getAnnualCost(employee) {
 }
 
 // Async – simulate salary processing (async is a promise of returning something else undefined)
+//Promise (async operation like network / waiting / actions)
 async function processPayroll(employee) {
   console.log("Processing payroll for", employee.name);
   return new Promise((resolve) => {//explicitly return new Promise('resolve'-function you call to fulfill the promise with a value)

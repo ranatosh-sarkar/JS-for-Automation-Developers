@@ -1,195 +1,168 @@
-// 1. Class and 2. Constructor 
-class Employee {
-  // 11. Access Specifiers: Using # for private fields (ES2022+)
+class Employee{
   #name;
   #salary;
 
-  constructor(id, name, role, baseSalary) {
-      this.id = id; // public
-      this.#name = name; 
-      this.role = role;
-      this.#salary = baseSalary;
+  constructor(id, name, role, salary){
+    this.id = id;
+    this.#name = name;
+    this.role = role;
+    this.#salary = salary;
   }
 
-  // 10. Getters and Setters
-  get name()   { return this.#name; }
-  get salary() { return this.#salary; }
-
-  setName(newName) {
-      if (newName.length < 2) throw new Error("Name too short");
-      this.#name = newName;
+  get name(){
+    return this.#name;
   }
 
-  setSalary(amount) {
-    // If the salary is negative, throw an error and stop running the function.
-      if (amount < 0) throw new Error("Invalid salary amount");
-    // If not, execute the next line
-      this.#salary = amount;
+  get salary(){
+    return this.#salary;
   }
 
-  // 4. Methods
-  calculateBonus() {
-      return this.#salary * 0.1;
+  setSalary(amount){
+    if(amount < 1) throw new Error('invalid salary');
+    this.#salary = amount;
   }
 
-  // 12. this Keyword
-  displayInfo() {
-      console.log(`Employee ${this.#name} (${this.role}) with id ${this.id} earns ${this.#salary}`);
+  setName(name){
+    if(name.length < 2) throw new Error ('name too short');
+    this.#name = name;
   }
 
-  // 13. Static Methods
-  static companyName() {
-      return "EY";
+  static companyName(){
+    return 'EY';
+  }
+
+  calculateBonus(){
+    return this.#salary * 0.1;
+  }
+
+  displayInfo(){
+    console.log(`Employee ${this.#name} works as ${this.role} with id ${this.id} earns ${this.#salary}`);
   }
 }
 
-// Debugging via console.log()
-console.log("=== EXISTING EMPLOYEE DETAILS ===");
-// 3. Object with values to existing property post-creation
-//variable emp1 will always point to the same object
-const emp1 = new Employee(101, "Alan", "Developer", 6500);
-// can’t reassign the whole variable
-//emp1 = new Employee(102, "Bob", "Tester", 50000); // ❌ ERROR
-console.log("Before Addition of Dynamic property",emp1);
-// name and salary are private (hidden), it does assign the values correctly 
-// to the private variables but only accessible via getter/setters
-emp1.department = "Engineering"; // dynamic property addition
-console.log("After Addition of Dynamic property",emp1);
-console.log("Calling displayInfo()-->");
-emp1.displayInfo();
-// console.log(`name= ${emp1.#name}, salary= ${emp1.#salary}`); -- not possible because of private fields
-// emp1.#name = "Alan Collins"; emp1.#salary = 80000;  -- not possible because of private fields
-console.log("=== SETTING NEW EMPLOYEE DETAILS AFTER PROMOTION===");
-// Exception Handling (throw, try, catch)
-try {
-      emp1.setName("A");
-    } catch (e) {
-      console.error("Caught Error (name):", e.message);
-    }
-try {
-      emp1.setSalary(-1);
-    } catch (e) {
-      console.error("Caught Error (salary):", e.message);
-    }
-emp1.setName("Alan Collins");
-emp1.setSalary(7500);
-console.log("Access Employee new name-> ", emp1.name);
-console.log("Access Employee new salary-> ", emp1.salary);
-emp1.id=1001; emp1.role="Manager"; emp1.department="Technical Management";
-emp1.displayInfo();
-console.log("Accessing Object properties");
-console.log(`id= ${emp1.id}, role= ${emp1.role}, department= ${emp1.department}`);
+const emp1 = new Employee(101, 'Alan', 'Dev', 3000);
+emp1.department = 'Operations';
+console.log('existing employee object state');
+console.log(emp1);
+console.log(`{ name: '${emp1.name}', salary: '${emp1.salary}' }`);
+console.log('after updation/promotion');
+emp1.id = 1001;
+emp1.role = 'Lead';
+emp1.department = 'Leadership';
+try{
+  emp1.setName('A');
+}catch(e){
+  console.log(`error caught in (name): `, e.message);
+}
 
-// 5. Encapsulation is shown through getters/setters and private fields
-// 6. Abstraction is implemented by hiding internal salary fields via private (#salary)
-// 7. Inheritance
-class Manager extends Employee {
-  constructor(id, name, baseSalary, department, teamSize) {
-    super(id, name, "Manager", baseSalary);
-    this.department = department;
+try{
+  emp1.setSalary(0);
+}catch(e){
+  console.log(`error caught in (salary): `, e.message);
+}
+
+emp1.setName('Alan Collins');
+emp1.setSalary(5000);
+
+emp1.displayInfo();
+console.log(`Under department: ${emp1.department}`);
+
+class Manager extends Employee{
+
+  constructor(id, name, salary, teamSize){
+    super(id, name, 'Project Manager', salary);
+    this.department = 'Management';
     this.teamSize = teamSize;
   }
 
-  // 8. Polymorphism (method overriding)
-  calculateBonus() {
-    return this.salary * 0.2 + this.teamSize * 100;
+  calculateBonus(){
+    return this.salary * 0.1 + (this.teamSize * 0.5);
   }
 
-  // its own functionality
-  approveLeave() {
-    console.log(`Designated ${this.role} ${this.name} can approve leaves.`);
+  approveLeave(){
+    console.log(`Designated ${this.role} ${this.name} with id ${this.id} and department ${this.department} 
+      with teamsize ${this.teamSize} can approve leaves!`);
   }
+
 }
 
-const mgr1 = new Manager(1001, "Bradely", 7500, "Technical Management", 30);
-
-console.log("----Manager Details----");
+const mgr1 = new Manager(201, 'Bradely', 5000, 10);
+console.log('existing Manager object state');
 mgr1.displayInfo();
-console.log(mgr1);
-
-mgr1.setName("Bradely Cooper");
-mgr1.setSalary(8500);
-mgr1.department = "Business Management";
-console.log("Updated Department--", mgr1.department);
-console.log("Manager Name--", mgr1.name);
-console.log("Bonus--", mgr1.calculateBonus());
+console.log(`{ department: '${mgr1.department}', teamSize: '${mgr1.teamSize}' }`);
+console.log('after updation/promotion');
+mgr1.id = 2001;
+mgr1.role = 'Business Manager';
+mgr1.department = 'Business Management';
+mgr1.setSalary(7000);
+mgr1.setName('Bradely Cooper');
+mgr1.teamSize = 30;
 mgr1.approveLeave();
+console.log(`      with new salary: `, mgr1.salary);
+console.log(`      and bonus: `, mgr1.calculateBonus());
 
-//you can’t declare a classic “constructor function + its prototype” inside a class body (prototype is always outside)
-//But you can attach a 'prototype method' as a property on Manager after the class is defined, 
-//below is an instance method adding to Manager 
-Manager.prototype.assignProject = function (project) {
-  this.project = project; // sets an own (per-instance) property, not a shared one                  
-  console.log(`Manager ${this.name} is assigned to: ${project}`);
-};
+Manager.prototype.assignProject = function(project) {
+  this.project = project;
+}
 
-mgr1.assignProject("Apollo");
+mgr1.assignProject('Apollo');
+console.log(`Manager ${mgr1.name} is assigned to project: ${mgr1.project}`);
 
-const intern1 = { firstName: "Elon" , lastname: "Musk", id: 301};
-intern1.role = "Internship";
-console.log(`Intern 1 Name: ${intern1.firstName} ${intern1.lastname}, role: ${intern1.role}, id: ${intern1.id}`);
+const intern1 = {firstname: 'Elon', lastname: 'Musk', id: '301'};
+intern1.role = 'Internship';
+console.log(`first intern ${intern1.firstname} ${intern1.lastname} with id ${intern1.id} doing ${intern1.role}`);
 
-// we can use the prototype to add new properties and methods to a 'constructor function' without changing 
-// existing code. ALL objects inherits the properties and methods from a prototype
-// 9. Prototype-based Inheritance (to demonstrate inheritance Intern should extend Employee)
-// Using class here is REQUIRED to access Employee's #private fields safely
-class Intern extends Employee {
-  constructor(id, name) {
-    super(id, name, "Intern", 0);
+class Intern extends Employee{
+  constructor(id, name){
+    super(id, name, 'Internship', 0);
   }
 }
 
-// Intern's own property 
-Intern.prototype.stipend = 1000; //stored on the prototype (shared by every Intern object)
+Intern.prototype.stipend = 1000;
 
-Intern.prototype.getInfo = function () { //getInfo is the property name also a method (function) stored on the prototype
-  // Uses Employee getter `name` (no public field needed)
+Intern.prototype.getInfo = function(){
   return `Intern ${this.name}, stipend: ${this.stipend}`;
-};
+}
 
-//GK note - constructor function can be created on its prototype without declaring a class using 'new' keyword which can turn a function into a constructor
-
-//new keyword makes the Intern class create a real Employee instance (with private fields)
-const intern2 = new Intern(302, "Bob");
-console.log(`Second Intern: ${intern2.getInfo()}`);
+const intern2 = new Intern(302, 'Bob');
+console.log(`second `, intern2.getInfo());
 
 Intern.prototype.stipend = 2000;
-const intern3 = new Intern(303, "Tony");
-console.log(`Third intern: ${intern3.getInfo()}`);
-intern3.displayInfo(); // this works because intern objects truly has Employee's #private fields
 
-const intern4 = new Intern(304, "Maverick");
-console.log(`Fourth intern: ${intern4.getInfo()}`); // reads current stipend value
+const intern3 = new Intern(303, 'Tony');
+console.log(`third `, intern3.getInfo());
+intern3.displayInfo();
+
+const intern4 = new Intern(304, 'Maverick');
+console.log(`fourth `, intern4.getInfo());
 intern4.displayInfo();
 
-// 14. function declared outside class with return keyword
-function getAnnualCost(employee) {
-  return employee.salary * 12;
+function getAnnualCost(employee){
+  return employee.salary *12;
 }
 
-// Async – simulate salary processing (async is a promise of returning something else undefined)
-async function processPayroll(employee) {
-  console.log("Processing payroll for", employee.name);
-  return new Promise((resolve) => {//explicitly return new Promise('resolve'-function you call to fulfill the promise with a value)
-      setTimeout(() => {
-          const netYearlyPay = getAnnualCost(employee) + employee.calculateBonus();
-          resolve(netYearlyPay);
-      }, 1000);
-  });
+async function processPayroll(employee){
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const netYearlyPay = getAnnualCost(employee) + employee.calculateBonus();
+      resolve(netYearlyPay);
+    }, 1000)
+  })
 }
 
-async function runPayroll(employee) {
-  try {
-      const totalAnnualPayout = 
-      await processPayroll(employee);//Pause this async function using await until the Promise is finished and gets resolved value else displays { <pending> }
-      console.log("Net Yearly Pay:", totalAnnualPayout);
-  } catch (error) {
-      console.error("Payroll processing failed:", error.message);
+// 6. define and runPayroll() use try-catch - const totalAnnualPayout
+
+async function runPayroll(employee){
+  try{
+    const totalAnnualPayout = await processPayroll(employee);
+    console.log(`yearly net payout: `, totalAnnualPayout);
+  }catch(e){
+    console.log(`failed to process payroll: `, e.message);
   }
 }
 
 (async () => {
-  await runPayroll(emp1); // run async function
-  // Polymorphism + Association: runPayroll works with any Employee subtype
-  await runPayroll(mgr1); // same function used for Employee and Manager instances
+  await runPayroll(emp1);
+  await runPayroll(mgr1);
 })();
+
