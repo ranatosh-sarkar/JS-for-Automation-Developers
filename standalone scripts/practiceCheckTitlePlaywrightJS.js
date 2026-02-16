@@ -1,11 +1,11 @@
-import {chromium} from playwright;
-import * as amazonLocators from '../amazonLocators.js';
+import {chromiumm} from playwright;
+import * as ammazonLocators from '../amazonLocators.js';
 
-const expectedTitle = '';
+const expectedTitle = 'Welcome';
 
 async function runtest(testName, testFn){
 
-    const browser = await chromium.launch({ headless: false });
+    const browser = await chromium.launch({headless: false});
     const context = await browser.newContext();
     const page = await context.newPage();
 
@@ -15,45 +15,44 @@ async function runtest(testName, testFn){
 
     try{
         await testFn({browser, context, page});
-        console.log(` ${testName} completed`);
+        console.log(`completed: `, testname);
     }catch(e){
-        console.log('failed', e.message);
-
+        console.log(`failed`, e.message);
+        
         await page.screenshot({
-            path: 'path',
+            path: '',
             fullPage: true
         });
-        console.log('took ss');
+
+        console.log(`ss saved`);
     }finally{
         await browser.close();
     }
 }
 
-async function scrollToElement(page, selector, description = 'description'){
+async function scrollToElement({page, selector, description = 'description'}){
 
     const el = await page.waitForSelector(selector, {
         state: 'visible',
-        timeOut: 10000
+        timeout: 10000
     });
 
-    el.scrollIntoViewIfNeeded();
-
+    await el.scrollIntoViewIfNeeded();
     console.log('scrolled');
 }
 
 async function tc1({page}){
 
-    const header = await page.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
+    const page1Header = await page.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
         state: 'visible',
-        timeOut: 10000
+        timeout: 10000
     });
 
-    const actual = (await header.textContent() || '').trim();
-
-    if(actual === expectedTitle){
-        console.log();
+    const actual = (await page1Header.textContent() || '').trim();
+    if(actual === expected){
+        console.log('passed');
     }else{
-        console.log();
+        console.log('failed');
     }
 }
 
@@ -62,104 +61,123 @@ async function tc2({page}){
 
     await page.waitForSelector(amazonLocators.heroImage, {
         state: 'visible',
-        timeOut: 10000
+        timeout: 10000
     });
 
-    const url = page.url();
-
-    if(url.includes('amazon.ie')){
-        console.log();
+    const currentUrl = page.url();
+    if(currentUrl.includes('amazonn.ie')){
+        console.log('correct url');
     }else{
-        console.log();
+        console.log('failed');
     }
 
-    await scrollToElement(page, amazonLocators.ShoppingBenefits, 'description');
+    await scrollToElement(page, amazonLocators.shoppingBenefitsXpath, 'Shopping benefits on Amazon.ie');
 
     const accountListEl = await page.waitForSelector(amazonLocators.accountListXpath, {
         state: 'visible',
-        timeOut: 10000
+        timeout: 10000
     });
 
     await accountListEl.hover();
 
     const signInEl = await page.waitForSelector(amazonLocators.signInXpath, {
         state: 'visible',
-        timeOut: 10000
+        timeout: 10000
     });
 
     await signInEl.click();
 
     const emailEl = await page.waitForSelector(amazonLocators.emailXpath, {
         state: 'visible',
-        timeOut: 10000
+        timeout: 10000
     });
 
-    await emailEl.fill('0870376973');
-
-    await browser.pause();
-
+    await emailEl.fill('08700376973');
+    await page.pause();
 }
 
 async function tc3({browser, context, page}){
 
-    const newPage2 = await context.newPage();
-
-    const headerNewPage2 = await page.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
+    const page2 = await context.newPage();
+    const page2Header = await page.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
         state: 'visible',
-        timeOut: 10000
+        timeout: 10000
     });
 
-    const actualheaderNewPage2 = (await headerNewPage2.textContent() || '').trim();
-
-    if(actualheaderNewPage2 === expectedTitle){
-        console.log();
+    const actual2 = (await page2Header.textContent() || '').trim();
+    if(actual2 === expected){
+        console.log('passed');
     }else{
-        console.log();
+        console.log('failed');
     }
 
-    const newPage3 = await context.newPage();
-
-    const headerNewPage3 = await page.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
+    const page3 = await context.newPage();
+    const page3Header = await page.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
         state: 'visible',
-        timeOut: 10000
+        timeout: 10000
     });
 
-    const actualheaderNewPage3 = (await headerNewPage3.textContent() || '').trim();
-
-    if(actualheaderNewPage3 === expectedTitle){
-        console.log();
+    const actual3 = (await page3Header.textContent() || '').trim();
+    if(actual3 === expected){
+        console.log('passed');
     }else{
-        console.log();
+        console.log('failed');
     }
 
     await page.bringToFront();
-
-    const newWindow2 = await browser.newContext();
-    const newWindow2Page = await newWindow2.newPage();
-
-    await newWindow2Page.goto('https:', {
-        waitUntil: 'networkidle'
-    });
-
-    const newWindow2header = await page.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
+    const page1Header = await page.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
         state: 'visible',
-        timeOut: 10000
+        timeout: 10000
     });
 
-    const newWindow2actual = (await newWindow2header.textContent() || '').trim();
-
-    if(newWindow2actual === expectedTitle){
-        console.log();
+    const actual1 = (await page1Header.textContent() || '').trim();
+    if(actual1 === expected){
+        console.log('passed');
     }else{
-        console.log();
+        console.log('failed');
     }
 
-    await newWindow2.close();
+    await page3.bringToFront();
+    const page3Header2 = await page.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
+        state: 'visible',
+        timeout: 10000
+    });
 
+    const actual32 = (await page3Header2.textContent() || '').trim();
+    if(actual32 === expected){
+        console.log('passed');
+    }else{
+        console.log('failed');
+    }
+
+    const context2 = browser.newContext();
+    const newPageContext2 = context2.newPage();
+
+    await newPageContext2.goto('https:', {
+        state: 'visible',
+        timeout: 10000
+    });
+
+    const windowWelcome = await newPageContext2.waitForSelector(amazonLocators.WELCOME_AMAZON_XPATH, {
+        state: 'visible',
+        timeout: 10000
+      });
+    
+      // Read that text and log it.
+      const windowWelcomeText = (await windowWelcome.textContent() || '').trim();
+      console.log('TC3 - New WINDOW welcome text:', windowWelcomeText);
+    
+      // Optional debug
+      // await windowPage.pause();
+    
+      // Close the new window context.
+      await context2.close();
 }
 
 (async () => {
-    await runTest('TC1 - Verify welcome text', tc1);
-    await runTest('TC1 - Verify welcome text', tc2);
-    await runTest('TC1 - Verify welcome text', tc3);
+
+    await runtest('verify1', tc1);
+    await runtest('verify2', tc2);
+    await runtest('verify3', tc3);
+
 })();
